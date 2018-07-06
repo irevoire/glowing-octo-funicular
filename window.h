@@ -7,8 +7,8 @@ struct window_s {
 	SDL_Window *window;
 	SDL_Renderer *renderer;
 
-	int width;
-	int height;
+	int w;
+	int h;
 };
 
 typedef struct window_s* window_t;

@@ -8,7 +8,7 @@ static void handle_window_event(SDL_WindowEventID event)
 		case SDL_WINDOWEVENT_RESIZED:
 		case SDL_WINDOWEVENT_SIZE_CHANGED:
 		case SDL_WINDOWEVENT_MAXIMIZED:
-			SDL_GetWindowSize(window->window, &window->width, &window->width);
+			resize_window();
 			break;
 		default:
 			break;
@@ -42,12 +42,11 @@ static int handle_event()
 void gameloop()
 {
 	int quit = 0;
-	int x = 0, y = 0;
-	int xs = 1, ys = 1;
 
 	int time;
 
-	image_t image = create_image("balle.bmp");
+#include "ball.h"
+	create_ball();
 
 	while (!quit)
 	{
@@ -57,17 +56,10 @@ void gameloop()
 
 		SDL_RenderClear(window->renderer);
 
-		SDL_Rect dstrect = { x, y, 50, 50};
-		SDL_RenderCopy(window->renderer, image->texture, NULL, &dstrect);
+		/* update pos and render image in window->renderer */
+		update_images();
+
 		SDL_RenderPresent(window->renderer);
-
-		x = (x + xs);
-		y = (y + ys);
-
-		if (x == (window->width - 50) || x == 0)
-			xs *= -1;
-		if (y == (window->height - 50) || y == 0)
-			ys *= -1;
 
 		if ((time = (SDL_GetTicks() - time)) > 20)
 			SDL_Delay(time);

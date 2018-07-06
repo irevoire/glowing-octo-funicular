@@ -4,7 +4,7 @@ LD_LIBS = `sdl2-config --libs`
 
 all: platformer
 
-platformer: platformer.o gameloop.o image.o window.o
+platformer: platformer.o gameloop.o image.o window.o ball.o
 	$(CC) $(LD_LIBS) $^ -o platformer
 
 %.o: %.c

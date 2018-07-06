@@ -23,8 +23,8 @@ void create_window(int width, int height)
 	if (window->renderer == NULL)
 		handle_SDL_Error("Could not create render");
 
-	window->width = width;
-	window->height = height;
+	window->w= width;
+	window->h= height;
 }
 
 void destroy_window()
@@ -37,5 +37,5 @@ void destroy_window()
 
 void resize_window()
 {
-
+	SDL_GetWindowSize(window->window, &window->w, &window->h);
 }
