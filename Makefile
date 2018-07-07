@@ -31,12 +31,12 @@ EXE := platformer
 all: $(EXE)
 
 $(EXE): $(COBJ)
-	$(CC) $(LDFLAGS) $^ -o $(EXE)
+	@$(CC) $(LDFLAGS) $^ -o $(EXE)
 
 %.o: %.c $(HSOURCES)
-	$(CC) $(CFLAGS) -c $< -o $@ 
+	@$(CC) $(CFLAGS) -c $< -o $@ 
 
 
 clean:
-	rm -f $(EXE)
-	rm -f $(COBJ)
+	-@$(RM) $(EXE)
+	-@$(RM) $(COBJ)
