@@ -1,6 +1,7 @@
 #include <SDL.h>
 
-#include <image.h>
+#include "ball.h"
+#include "image.h"
 #include "window.h"
 
 struct ball_s {

@@ -7,7 +7,7 @@
 #include "window.h"
 #include "gameloop.h"
 
-int main(int argc, char **argv)
+int main(void)
 {
 	create_window(640, 480);
 

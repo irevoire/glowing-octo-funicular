@@ -18,8 +18,8 @@ extern window_t window;
 
 void create_window(int width, int height);
 
-void destroy_window();
+void destroy_window(void);
 
-void resize_window();
+void resize_window(void);
 
 #endif /* _WINDOW_H_ */

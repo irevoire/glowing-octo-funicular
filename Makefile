@@ -1,21 +1,26 @@
 # Directory
-SRC_DIR = ./src
-INC_DIR = $(PWD)/include
+SRC_DIR := src
+INC_DIR := include
 
 # Sources
-CSOURCES = $(shell find . -type f -iname '*.c')
-HSOURCES = $(wildcard $(INC_DIR)/*.h)
+CSOURCES := $(shell find . -type f -iname '*.c')
+HSOURCES := $(wildcard $(INC_DIR)/*.h)
 
 # Objects
-COBJ = $(CSOURCES:.c=.o)
+COBJ := $(CSOURCES:.c=.o)
 
 
-CC = gcc
+CC := gcc
 
+WARNINGS := -Wall -Wextra -pedantic -Wshadow -Wpointer-arith -Wcast-align \
+            -Wwrite-strings -Wmissing-prototypes -Wmissing-declarations \
+            -Wredundant-decls -Wnested-externs -Winline -Wno-long-long \
+            -Wconversion -Wstrict-prototypes -Werror
+CFLAGS := -g -std=gnu99 $(WARNINGS)
 
-CFLAGS := $(shell sdl2-config --cflags)
-LDFLAGS = $(shell sdl2-config --libs)
-
+# SLD2
+CFLAGS += $(shell sdl2-config --cflags)
+LDFLAGS := $(shell sdl2-config --libs)
 
 # Include directories
 CFLAGS += -I$(INC_DIR)

@@ -1,3 +1,4 @@
+#include "gameloop.h"
 #include "window.h"
 #include "image.h"
 
@@ -39,11 +40,11 @@ static int handle_event()
 	return 0;
 }
 
-void gameloop()
+void gameloop(void)
 {
 	int quit = 0;
 
-	int time;
+	unsigned int time;
 
 	while (!quit)
 	{

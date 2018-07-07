@@ -6,7 +6,7 @@
 
 image_list_t g_all_image = NULL;
 
-image_t create_image(char *path, int x, int y, int w, int h)
+image_t create_image(const char *const path, int x, int y, int w, int h)
 {
 	image_t image = malloc(sizeof *image);
 
