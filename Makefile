@@ -9,7 +9,6 @@ HSOURCES := $(wildcard $(INC_DIR)/*.h)
 # Objects
 COBJ := $(CSOURCES:.c=.o)
 
-
 CC := gcc
 
 WARNINGS := -Wall -Wextra -pedantic -Wshadow -Wpointer-arith -Wcast-align \
@@ -25,10 +24,13 @@ LDFLAGS := $(shell sdl2-config --libs)
 # Include directories
 CFLAGS += -I$(INC_DIR)
 
+EXE := platformer
 
-all: platformer
+.PHONY: all clean
 
-platformer: $(COBJ)
+all: $(EXE)
+
+$(EXE): $(COBJ)
 	$(CC) $(LDFLAGS) $^ -o platformer
 
 %.o: %.c $(HSOURCES)
@@ -36,5 +38,5 @@ platformer: $(COBJ)
 
 
 clean:
-	rm -f platformer
+	rm -f $(EXE)
 	rm -f $(COBJ)
