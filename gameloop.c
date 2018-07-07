@@ -45,9 +45,6 @@ void gameloop()
 
 	int time;
 
-#include "ball.h"
-	create_ball();
-
 	while (!quit)
 	{
 		time = SDL_GetTicks();
@@ -59,10 +56,10 @@ void gameloop()
 		/* update pos and render image in window->renderer */
 		update_images();
 
-		SDL_RenderPresent(window->renderer);
-
 		if ((time = (SDL_GetTicks() - time)) > 20)
 			SDL_Delay(time);
+
+		SDL_RenderPresent(window->renderer);
 	}
 
 }
