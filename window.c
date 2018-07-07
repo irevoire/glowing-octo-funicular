@@ -19,7 +19,10 @@ void create_window(int width, int height)
 	if (window->window == NULL)
 		handle_SDL_Error("Could not create window");
 
-	window->renderer = SDL_CreateRenderer(window->window, -1, 1);
+	window->renderer = SDL_CreateRenderer(window->window, -1,
+			SDL_RENDERER_ACCELERATED |
+			SDL_RENDERER_PRESENTVSYNC |
+			SDL_RENDERER_TARGETTEXTURE);
 	if (window->renderer == NULL)
 		handle_SDL_Error("Could not create render");
 
