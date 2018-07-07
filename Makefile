@@ -31,7 +31,7 @@ EXE := platformer
 all: $(EXE)
 
 $(EXE): $(COBJ)
-	$(CC) $(LDFLAGS) $^ -o platformer
+	$(CC) $(LDFLAGS) $^ -o $(EXE)
 
 %.o: %.c $(HSOURCES)
 	$(CC) $(CFLAGS) -c $< -o $@ 
