@@ -1,5 +1,5 @@
-CFLAGS = `sdl2-config --cflags`
-LD_LIBS = `sdl2-config --libs`
+CFLAGS = $(shell sdl2-config --cflags)
+LD_LIBS = $(shell sdl2-config --libs)
 
 
 all: platformer
