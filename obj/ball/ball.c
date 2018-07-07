@@ -1,6 +1,6 @@
 #include <SDL.h>
 
-#include "image.h"
+#include <image.h>
 #include "window.h"
 
 struct ball_s {
@@ -37,7 +37,7 @@ static int update_ball(struct image_list_s *el)
 
 static image_list_t create_ball()
 {
-	image_t image = create_image("img/balle.bmp", window->w / 2, window->h / 2, 50, 50);
+	image_t image = create_image("media/balle.bmp", window->w / 2, window->h / 2, 50, 50);
 
 	return handle_image(image, update_ball);
 }

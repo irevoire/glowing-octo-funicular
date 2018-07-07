@@ -11,7 +11,7 @@ int main(int argc, char **argv)
 {
 	create_window(640, 480);
 
-#include "ball.h"
+#include "obj/ball/ball.h"
 	create_moving_ball(12, 1, 1);
 
 	create_moving_ball(1, -3, 1);
