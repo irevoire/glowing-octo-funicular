@@ -2,7 +2,7 @@
 #include <SDL.h>
 
 #include "window.h"
-#include "error.h"
+#include "utils.h"
 
 window_t window = NULL;
 
