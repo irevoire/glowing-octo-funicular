@@ -1,6 +1,7 @@
 # Directory
 SRC_DIR := src
 INC_DIR := include
+INC_OBJ_DIR := obj
 
 # Sources
 CSOURCES := $(shell find . -type f -iname '*.c')
@@ -23,6 +24,7 @@ LDFLAGS := $(shell sdl2-config --libs)
 
 # Include directories
 CFLAGS += -I$(INC_DIR)
+CFLAGS += -I$(INC_OBJ_DIR)
 
 EXE := platformer
 

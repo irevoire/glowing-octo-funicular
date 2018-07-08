@@ -1,25 +1,17 @@
 #include <SDL.h>
 
 #include "ball.h"
+#include "object.h"
+
 #include "image.h"
 #include "window.h"
 
-struct ball_s {
-	int xs;
-	int ys;
-
-	int init_time;
-	int time;
-};
-
-typedef struct ball_s *ball_t;
-
 static int update_ball(struct image_list_s *el)
 {
-	ball_t balls = el->data;
+	object_t balls = el->data;
 
 	if (balls->time-- > 0)
-		return 0;;
+		return 0;
 
 	balls->time = balls->init_time;
 
@@ -47,9 +39,9 @@ void create_moving_ball(int xs, int ys, int time)
 {
 	image_list_t el = create_ball();
 
-	el->data = malloc(sizeof(struct ball_s));
+	el->data = malloc(sizeof(struct object_s));
 
-	struct ball_s *balls = el->data;
+	object_t balls = el->data;
 	balls->xs = xs;
 	balls->ys = ys;
 	balls->init_time = time;
