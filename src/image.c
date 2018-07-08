@@ -2,7 +2,7 @@
 
 #include "image.h"
 #include "window.h"
-#include "error.h"
+#include "utils.h"
 
 image_list_t g_all_image = NULL;
 
@@ -52,7 +52,8 @@ image_list_t handle_image(image_t image, int(*func)(image_list_t))
 
 void update_images()
 {
-	for (image_list_t el = g_all_image; el != NULL; el = el->next)
+	image_list_t el;
+	FOREACH(el, g_all_image)
 	{
 		el->update(el);
 		SDL_RenderCopy(window->renderer, el->image->texture,
