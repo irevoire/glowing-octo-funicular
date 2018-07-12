@@ -1,6 +1,7 @@
 #include "gameloop.h"
 #include "window.h"
 #include "image.h"
+#include "physics.h"
 
 static void handle_window_event(SDL_WindowEventID event)
 {
@@ -52,7 +53,10 @@ void gameloop(void)
 
 		quit = handle_event();
 
+		/* clear the window */
 		SDL_RenderClear(window->renderer);
+
+		collision_update();
 
 		/* update pos and render image in window->renderer */
 		update_images();
@@ -60,6 +64,7 @@ void gameloop(void)
 		if ((time = (SDL_GetTicks() - time)) > 20)
 			SDL_Delay(time);
 
+		/* show the window->renderer in the window */
 		SDL_RenderPresent(window->renderer);
 	}
 

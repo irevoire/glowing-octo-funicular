@@ -5,6 +5,7 @@
 
 #include "image.h"
 #include "window.h"
+#include "physics.h"
 
 static int update_ball(struct image_list_s *el)
 {
@@ -46,5 +47,8 @@ void create_moving_ball(int xs, int ys, int time)
 	balls->ys = ys;
 	balls->init_time = time;
 	balls->time = time;
+	balls->pos = &el->image->rect;
+
+	handle_collision(balls);
 }
 
