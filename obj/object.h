@@ -1,7 +1,11 @@
 #ifndef _OBJECT_H_
 #define _OBJECT_H_
 
+#include <SDL.h>
+
 struct object_s {
+	SDL_Rect *pos;
+
 	int xs;
 	int ys;
 
