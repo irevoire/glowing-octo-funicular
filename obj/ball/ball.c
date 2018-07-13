@@ -21,10 +21,26 @@ static int update_ball(struct image_list_s *el)
 	rect->x += balls->xs;
 	rect->y += balls->ys;
 
-	if (rect->x >= (window->w - rect->w) || rect->x <= 0)
+	if (rect->x > (window->w - rect->w))
+	{
+		balls->pos->x = window->w - rect->w;
 		balls->xs *= -1;
-	if (rect->y >= (window->h - rect->h) || rect->y <= 0)
+	}
+	else if (rect->x < 0)
+	{
+		balls->pos->x = 0;
+		balls->xs *= -1;
+	}
+	if (rect->y >= (window->h - rect->h))
+	{
+		balls->pos->y = window->h - rect->h;
 		balls->ys *= -1;
+	}
+	else if (rect->y <= 0)
+	{
+		balls->pos->y = 0;
+		balls->ys *= -1;
+	}
 
 	return 0;
 }
